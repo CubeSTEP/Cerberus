@@ -13,7 +13,8 @@
       "cacheVariables": {
           "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
           "CMAKE_BUILD_TYPE": "Release"
-      }
+      },
+      "toolchainFile": "${fileDir}/lib/fprime-zephyr/cmake/toolchain/zephyr.cmake"
     },
     {
       "name": "fprime-debug",
