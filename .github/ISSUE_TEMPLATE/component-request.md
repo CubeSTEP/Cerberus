@@ -7,14 +7,20 @@ assignees: ''
 
 ---
 
-## Component Overview
-### Component Description
+# Component Overview
+## Component Description
 Give a brief description of the requested component
 
-### Component Requirements
+## Component Requirements
 | Requirement | Description |
 | :- | :- |
 | Component-01 | Description of requirement |
 
-## Resources
+## Checklist
+- [ ] Design
+- [ ] Implementation
+- [ ] Unit Testing
+- [ ] Close-Out
+
+# Resources
 Include any resources. This may include existing fprime components or components from other fprime libraries.
