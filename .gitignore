@@ -13,7 +13,10 @@ lib/zephyr-workspace*
 # Misc
 /venv/
 /fprime-venv/
+/coverage/
 /.idea/
 /.vscode/
 .DS_Store
 *.gcov
+*.fppi
+*.trans

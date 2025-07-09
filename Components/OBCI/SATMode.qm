@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model version="7.0.1" links="0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.state-machine.com/qm/qm7.xsd">
+ <framework name="qpc"/>
+ <package name="package1" stereotype="0x00">
+  <class name="SATMode" superclass="qpc::QHsm">
+   <statechart properties="0x01">
+    <initial target="../1">
+     <initial_glyph conn="49,39,5,0,6,5">
+      <action box="0,-2,10,2"/>
+     </initial_glyph>
+    </initial>
+    <state name="StartUp">
+     <entry brief="Startup()"/>
+     <tran trig="StartUpComplete" target="../../2">
+      <action brief="SafeCheck()"/>
+      <tran_glyph conn="69,49,1,3,35">
+       <action box="0,-2,24,2"/>
+      </tran_glyph>
+     </tran>
+     <state_glyph node="48,44,21,14">
+      <entry box="0,3,19,3"/>
+     </state_glyph>
+    </state>
+    <state name="Safe">
+     <tran trig="SafeExit" target="../../3">
+      <action brief="SafeExit()"/>
+      <tran_glyph conn="108,54,2,0,7">
+       <action box="-15,2,18,2"/>
+      </tran_glyph>
+     </tran>
+     <state_glyph node="104,44,16,10"/>
+    </state>
+    <state name="MonitorSafety">
+     <initial target="../3">
+      <initial_glyph conn="115,68,5,0,2,4">
+       <action box="0,-2,10,2"/>
+      </initial_glyph>
+     </initial>
+     <tran trig="ErrorDetected" target="../../2">
+      <tran_glyph conn="115,61,0,2,-7">
+       <action box="1,-5,12,2"/>
+      </tran_glyph>
+     </tran>
+     <tran trig="Tick">
+      <action brief="CheckSafety()"/>
+      <tran_glyph conn="83,73,3,-1,15">
+       <action box="0,-3,16,2"/>
+      </tran_glyph>
+     </tran>
+     <state name="Idle">
+      <tran trig="StartExperiment" target="../../4">
+       <action brief="SetUpExperiment()"/>
+       <tran_glyph conn="118,87,2,0,19">
+        <action box="-28,1,28,3"/>
+       </tran_glyph>
+      </tran>
+      <state_glyph node="114,72,22,15"/>
+     </state>
+     <state name="Experiment">
+      <tran trig="EndExperiment" target="../../3">
+       <action brief="TearDownExperiment()"/>
+       <tran_glyph conn="130,106,0,2,-19">
+        <action box="2,-18,30,2"/>
+       </tran_glyph>
+      </tran>
+      <tran trig="Tick">
+       <action brief="PerformExperiment()"/>
+       <tran_glyph conn="114,112,3,-1,8">
+        <action box="0,-3,21,2"/>
+       </tran_glyph>
+      </tran>
+      <state_glyph node="114,106,22,10"/>
+     </state>
+     <state_glyph node="83,61,79,57"/>
+    </state>
+    <state_diagram size="258,137"/>
+   </statechart>
+  </class>
+ </package>
+</model>

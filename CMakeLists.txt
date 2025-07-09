@@ -5,8 +5,12 @@
 
 cmake_minimum_required(VERSION 3.24.2)
 
-find_package(Zephyr HINTS "${CMAKE_CURRENT_LIST_DIR}/lib/zephyr-workspace")
-project(fprime-nucleo_h723zg-zephyr-reference C CXX)
+#if (${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
+    project(Cerberus C CXX)
+#else()
+    #find_package(Zephyr HINTS "${CMAKE_CURRENT_LIST_DIR}/lib/zephyr-workspace")
+    #project(fprime-nucleo_h723zg-zephyr-reference C CXX)
+#endif()
 
 # Put in an option to force the device back into programable state for automated testing
 option(FPRIME_CI_FAILSAFE_ENABLED "Cycle count before a forced reset to programable state" OFF)
