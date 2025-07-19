@@ -2,21 +2,22 @@
 name: Component request
 about: Request the creation of a new fprime-component
 title: ''
-labels: ''
+labels: component
 assignees: ''
 
 ---
 
 # Component Overview
-## Component Description
+## 1. Component Description
 Give a brief description of the requested component
 
-## Component Requirements
+## 2. Component Requirements
+### 2.1 General Requirements
 | Requirement | Description |
 | :- | :- |
 | Component-01 | Description of requirement |
 
-## Checklist
+## 3. Checklist
 - [ ] Design
 - [ ] Implementation
 - [ ] Unit Testing
