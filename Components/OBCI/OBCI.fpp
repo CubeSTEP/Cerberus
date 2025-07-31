@@ -5,13 +5,6 @@ module Manager {
     active component OBCI {
         state machine instance SATMode: SATMode
 
-        enum SATState{
-            Safe = -1
-            StartUp = 0
-            Idle = 1
-            Experiment = 2
-        }
-
         # One async command/port is required for active components
         # This should be overridden by the developers with a useful command/port
         @ Initiates experiment
@@ -25,8 +18,11 @@ module Manager {
         @ Rate group scheduling
         sync input port Tick: Svc.Sched
 
+        @ Toggle Experiment
+        output port ExperimentInterrupt: Manager.ExperimentInterrupt
+
         @ Telemetering current state
-        telemetry CurrentSATState: SATState
+        telemetry CurrentSATState: SATMode_State
 
         ##############################################################################
         #### Uncomment the following examples to start customizing your component ####

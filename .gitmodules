@@ -10,3 +10,7 @@
 [submodule "lib/fprime-stm32h7-zephyr"]
 	path = lib/fprime-stm32h7-zephyr
 	url = https://github.com/CubeSTEP/fprime-stm32h7-zephyr.git
+[submodule "lib/STARS"]
+	path = lib/STARS
+	url = https://github.com/JPLOpenSource/STARS.git
+	branch = Nested-State-Machine-Fix

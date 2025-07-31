@@ -11,8 +11,8 @@
                                 
 #include <Fw/Sm/SmSignalBuffer.hpp>
 #include <config/FpConfig.hpp>
-
-#include "SATState.hpp"
+#include "build-fprime-automatic-native/Components/OBCI/SATMode_StateEnumAc.hpp"
+//#include "SATMode_StateEnumAc.hpp"
                                  
 namespace Manager {
 
@@ -60,7 +60,7 @@ class SATMode {
                                  
     SATMode(SATMode_Interface* parent) : parent(parent) {}
     
-    enum SATState state;
+    enum SATMode_State::T state;
 
     void init(const FwEnumStoreType stateMachineId);
     void update(

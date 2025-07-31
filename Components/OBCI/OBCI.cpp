@@ -22,11 +22,19 @@ OBCI::~OBCI(){}
 
 void OBCI::StartExperiment_cmdHandler(FwOpcodeType opCode, U32 cmdSeq){
     // TODO
+    Fw::SmSignalBuffer data;
+
+    SATMode_stateMachineInvoke(STARTEXPERIMENT_SIG, data);
+
     this->cmdResponse_out(opCode, cmdSeq, Fw::CmdResponse::OK);
 }
 
 void OBCI::StopExperiment_cmdHandler(FwOpcodeType opCode, U32 cmdSeq){
     // TODO
+    Fw::SmSignalBuffer data;
+
+    SATMode_stateMachineInvoke(ENDEXPERIMENT_SIG, data);
+    
     this->cmdResponse_out(opCode, cmdSeq, Fw::CmdResponse::OK);
 }
 
@@ -35,7 +43,7 @@ void OBCI::StopExperiment_cmdHandler(FwOpcodeType opCode, U32 cmdSeq){
 // ----------------------------------------------------------------------
 
 void OBCI::Tick_handler(FwIndexType portNum, U32 context){
-    // TODO
+    tlmWrite_CurrentSATState(SATMode_getState());
 }
 
 }  // namespace Manager

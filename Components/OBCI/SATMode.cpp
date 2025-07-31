@@ -13,7 +13,7 @@
 void Manager::SATMode::init(const FwEnumStoreType stateMachineId)
 {
     parent->SATMode_Startup(stateMachineId);
-    this->state = SATState::StartUp;
+    this->state = StartUp;
 
 }
 
@@ -29,13 +29,13 @@ void Manager::SATMode::update(
             /**
             * state StartUp
             */
-            case SATState::StartUp:
+            case StartUp:
             
             switch (signal) {
 
                 case SATMode_Interface::SATMode_Signals::STARTUPCOMPLETE_SIG:
                         parent->SATMode_SafeCheck(stateMachineId);
-                        this->state = SATState::Safe;
+                        this->state = Safe;
 
                     break;
     
@@ -47,13 +47,13 @@ void Manager::SATMode::update(
             /**
             * state Safe
             */
-            case SATState::Safe:
+            case Safe:
             
             switch (signal) {
 
                 case SATMode_Interface::SATMode_Signals::SAFEEXIT_SIG:
                         parent->SATMode_SafeExit(stateMachineId);
-                        this->state = SATState::Idle;
+                        this->state = Idle;
 
                     break;
     
@@ -65,18 +65,18 @@ void Manager::SATMode::update(
             /**
             * state Idle
             */
-            case SATState::Idle:
+            case Idle:
             
             switch (signal) {
 
                 case SATMode_Interface::SATMode_Signals::STARTEXPERIMENT_SIG:
                         parent->SATMode_SetUpExperiment(stateMachineId);
-                        this->state = SATState::Experiment;
+                        this->state = Experiment;
 
                     break;
     
                 case SATMode_Interface::SATMode_Signals::ERRORDETECTED_SIG:
-                        this->state = SATState::Safe;
+                        this->state = Safe;
 
                     break;
     
@@ -93,13 +93,13 @@ void Manager::SATMode::update(
             /**
             * state Experiment
             */
-            case SATState::Experiment:
+            case Experiment:
             
             switch (signal) {
 
                 case SATMode_Interface::SATMode_Signals::ENDEXPERIMENT_SIG:
                         parent->SATMode_TearDownExperiment(stateMachineId);
-                        this->state = SATState::Idle;
+                        this->state = Idle;
 
                     break;
     
@@ -109,7 +109,7 @@ void Manager::SATMode::update(
                     break;
     
                 case SATMode_Interface::SATMode_Signals::ERRORDETECTED_SIG:
-                        this->state = SATState::Safe;
+                        this->state = Safe;
 
                     break;
     

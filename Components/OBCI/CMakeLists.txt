@@ -16,6 +16,7 @@
 
 register_fprime_library(
     AUTOCODER_INPUTS
+        "${CMAKE_CURRENT_LIST_DIR}/SATMode_State.fpp"
         "${CMAKE_CURRENT_LIST_DIR}/OBCI.fpp"
     SOURCES
         "${CMAKE_CURRENT_LIST_DIR}/OBCI.cpp"
